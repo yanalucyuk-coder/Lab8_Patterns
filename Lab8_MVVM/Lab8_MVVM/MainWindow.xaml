@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8_MVVM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MVVM" Height="230" Width="400">
+    <Window.Resources>
+        <Style x:Key="all_style">
+            <Setter Property="ItemsControl.FontFamily" Value="Verdana"/>
+            <Setter Property="ItemsControl.FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-
+        <StackPanel>
+            <Label Style="{StaticResource all_style}">Потужність (кВт) =</Label>
+            <TextBox x:Name="power" Text="{Binding Number1, UpdateSourceTrigger=PropertyChanged, Delay=700}"
+                     Style="{StaticResource all_style}"></TextBox>
+            <Label Style="{StaticResource all_style}">Час (год) =</Label>
+            <TextBox x:Name="hours" Text="{Binding Number2, UpdateSourceTrigger=PropertyChanged, Delay=700}"
+                     Style="{StaticResource all_style}"></TextBox>
+            <Label Style="{StaticResource all_style}">Тариф (грн за кВт·год) =</Label>
+            <TextBox x:Name="tarif" Text="{Binding Number3, UpdateSourceTrigger=PropertyChanged, Delay=700}"
+                     Style="{StaticResource all_style}"></TextBox>
+            <Label Style="{StaticResource all_style}">Результат</Label>
+            <TextBox x:Name="cost" Text="{Binding Number4, Mode=OneWay}" IsReadOnly="True"
+                   Style="{StaticResource all_style}"></TextBox>
+        </StackPanel>
     </Grid>
 </Window>
